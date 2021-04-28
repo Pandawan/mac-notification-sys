@@ -5,7 +5,6 @@
 [![version](https://img.shields.io/crates/v/mac-notification-sys?style=flat-square)](https://crates.io/crates/mac-notification-sys/)
 ![Crates.io](https://img.shields.io/crates/d/mac-notification-sys?style=flat-square)
 
-
 A simple wrapper to deliver or schedule macOS Notifications in Rust.
 
 ## Usage
@@ -56,6 +55,15 @@ fn main() {
 
 ## Contributors
 
- Thanks goes to these wonderful people:
- - [@hoodie](https://github.com/hoodie)
- - [@PandawanFr](https://github.com/PandawanFr)
+Thanks goes to these wonderful people:
+
+- [@hoodie](https://github.com/hoodie)
+- [@Pandawan](https://github.com/Pandawan)
+
+## UserNotifications plan
+
+- [Use a system version check to enable UserNotifications if available](https://stackoverflow.com/questions/39850603/how-to-implement-push-notification-for-ios-10objective-c)
+- Compile with `-framework UserNotifications` to auto-import the framework into the build
+  - Might need to use [.flag()](https://docs.rs/cc/1.0.67/cc/struct.Build.html#method.flag) in `build.rs`
+- See Apple docs for more info on [including frameworks (without Xcode)](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFrameworks/Tasks/IncludingFrameworks.html)
+- Will probably need to [codesign the binary](https://docs.rs/tugger-apple-codesign/0.2.0/tugger_apple_codesign/) after building in `build.rs`
