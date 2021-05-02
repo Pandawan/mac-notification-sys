@@ -1,6 +1,7 @@
 #import <Cocoa/Cocoa.h>
 #import <CoreServices/CoreServices.h>
 #import <Foundation/Foundation.h>
+#import <UserNotifications/UserNotifications.h>
 #import <objc/runtime.h>
 
 NSString* fakeBundleIdentifier = nil;

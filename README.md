@@ -66,4 +66,7 @@ Thanks goes to these wonderful people:
 - Compile with `-framework UserNotifications` to auto-import the framework into the build
   - Might need to use [.flag()](https://docs.rs/cc/1.0.67/cc/struct.Build.html#method.flag) in `build.rs`
 - See Apple docs for more info on [including frameworks (without Xcode)](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFrameworks/Tasks/IncludingFrameworks.html)
-- Will probably need to [codesign the binary](https://docs.rs/tugger-apple-codesign/0.2.0/tugger_apple_codesign/) after building in `build.rs`
+- Will probably need to [codesign the binary](https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html) with [the equivalent rust codesign lib](https://docs.rs/tugger-apple-codesign/0.2.0/tugger_apple_codesign/) after building in `build.rs`
+- May have to [link](https://github.com/alexcrichton/cc-rs/issues/517)? Maybe not?
+- Resources on building without xcode [1](https://medium.com/@vojtastavik/building-an-ios-app-without-xcodes-build-system-d3e5ca86d30d), [2](https://billthefarmer.github.io/blog/build-mac-osx-apps-using-command-line-tools/), [3](https://stackoverflow.com/questions/29242485/command-usr-bin-codesign-failed-with-exit-code-1-code-sign-error)
+- Other docs on notifications: [1](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html)

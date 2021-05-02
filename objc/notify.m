@@ -1,5 +1,15 @@
 #import "notify.h"
 
+void test()
+{
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
+                          completionHandler:^(BOOL granted, NSError* _Nullable error) {
+                            // Enable or disable features based on authorization.
+                            NSLog(@"Completed %s with error %@", granted ? "true" : "false", [error localizedDescription]);
+                          }];
+}
+
 // getBundleIdentifier(app_name: &str) -> "com.apple.Terminal"
 NSString* getBundleIdentifier(NSString* appName)
 {

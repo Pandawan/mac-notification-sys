@@ -27,6 +27,7 @@ mod sys {
     use objc_id::Id;
     #[link(name = "notify")]
     extern "C" {
+        pub fn test();
         pub fn sendNotification(
             title: *const NSString,
             subtitle: *const NSString,
@@ -110,7 +111,10 @@ pub fn get_bundle_identifier(app_name: &str) -> Option<String> {
 /// Set the application which delivers or schedules a notification
 pub fn set_application(bundle_ident: &str) -> NotificationResult<()> {
     unsafe {
-        ensure!(!APPLICATION_SET, ApplicationError::AlreadySet(bundle_ident.into()));
+        ensure!(
+            !APPLICATION_SET,
+            ApplicationError::AlreadySet(bundle_ident.into())
+        );
         ensure!(
             sys::setApplication(NSString::from_str(bundle_ident).deref()),
             ApplicationError::CouldNotSet(bundle_ident.into())
@@ -120,4 +124,9 @@ pub fn set_application(bundle_ident: &str) -> NotificationResult<()> {
         });
         Ok(())
     }
+}
+
+/// Test
+pub fn test() {
+    unsafe { sys::test() }
 }
